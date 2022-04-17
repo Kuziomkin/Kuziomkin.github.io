@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Instruction - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Instruction</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#business-analysis-information-management" class="nav-link">Business analysis information management</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#introduction" class="nav-link">Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#storing-agreement" class="nav-link">Storing agreement</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#management-agreement" class="nav-link">Management agreement</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#project-environment" class="nav-link">Project environment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p><img alt="link" src="../img/BA_Lab.png" /></p>
+<h1 id="business-analysis-information-management">Business analysis information management</h1>
+<h2 id="introduction">Introduction</h2>
+<p>In the delivery process, business analysts produce loads of artifacts. To manage business analysis information efficiently every BA on the project should follow the agreement on how to organize, store and manage information.</p>
+<h2 id="storing-agreement">Storing agreement</h2>
+<p>Business analysis diagrams and API specifications should be stored in the GitLab repository.</p>
+<h3 id="repository-structure">Repository structure</h3>
+<p>There 3 main directories:
+-   API - the directory containing the description of the program interfaces.
+-   Epic - the directory containing a collection of functionalities that are united by a common feature or characteristic.
+-   out – the directory containing pictures of diagrams.</p>
+<p>It is necessary to follow the directories nesting:</p>
+<pre><code>/API
+    /&lt;System&gt;
+      &lt;API_name&gt;.yaml
+/Epics
+    /Features
+        US.&lt;Epic&gt;.&lt;auto-increment&gt;.feature
+    /Diagrams
+        /&lt;Type&gt;
+            &lt;Epic&gt;_&lt;UC&gt;_&lt;type&gt;.puml  
+    /Mockups
+        &lt;Epic&gt;_&lt;name&gt;.drawio
+&lt;FileName&gt;.md
+&lt;FileName&gt;.html
+/out
+    /Epics
+        /Diagrams
+            &lt;Name&gt;.png
+        /Mockups
+            &lt;Name&gt;.png
+README.md
+</code></pre>
+<h3 id="file-naming-agreement">File naming agreement</h3>
+<p>The following rules should be adhered to:
+-   All files are named in English.
+-   A compound file name is used.
+-   The name should characterize the content that is inside the file.</p>
+<h3 id="diagrams-agreement">Diagrams agreement</h3>
+<p>The following rules should be adhered to:
+-   UML diagrams and the tool PlantUML (http://plantuml.com) are used
+-   Diagrams are not UML notations and the tool [Drawio] (http://draw.io/)
+-   The file name consists of epic name + "_" + script name + diagram type + "." + file type. (Example: Payment_makepurchase_sequence.puml)
+-   The main and alternative scenarios are described in one file</p>
+<p>Table — Diagram types
+|Type|Name|Comment|
+|---|---|---|
+|activity|Activity diagram|UML::Activity|
+|class|Class diagram or Entity relationship diagram|UML::Class|
+|sequence|Sequence diagram|UML::Sequence|
+|state|State-machine diagram|UML::State|
+|usecase|Use Case diagram|UML::Use Case|
+|dataflow|Data-flow diagram|DFD in drawio|
+|conceptdiagram|Conceptual model|CMD in drawio|
+|swimline|Swim lane diagram|Swimline in drawio|</p>
+<h3 id="api-agreement">API agreement</h3>
+<p>The following rules should be adhered to:
+-   API files with descriptions of requests and responses must be in the format '.json', '.yaml', '.xsd', ".xml".
+-   It is necessary to store API files in Swagger notation (https://swagger.io/).
+-   File name consists of stream name + "_ '+ API name +". "+ File type. (Example: Payments_SSO.yaml)</p>
+<h2 id="management-agreement">Management agreement</h2>
+<p>For productive collaboration in the repository, you must adhere to the following rules:
+-   The main branch of the repository contains the final version of the artifacts.
+-   Uploading files to the main branch can only be done with the agreement of those responsible for the repository.
+-   A separate branch should be created for each participant.
+-   Each participant creates artifacts in his own branch.
+-   At the end of the work, the participant asks those responsible for the repository with a request to upload artifacts to the main branch of the repository.
+-   The main branch of the repository must be updated at least once a week.</p>
+<h3 id="commit-agreement">Commit agreement</h3>
+<p>Please adhere to the following guidelines:
+-   Make sure that every commit you make is atomic enough (one new or changed feature per commit).
+-   Always write a clear message to your commits
+-   Write in English.
+-   Start with a verb (Add, Change, Delete).
+-   Write with a capital letter.</p>
+<h2 id="project-environment">Project environment</h2>
+<p>We use the IDE to prepare artifacts and use PlantUML (http://plantuml.com).
+Prepare the environment:</p>
+<ol>
+<li>Install software</li>
+<li>Client Git (http://git-scm.org)</li>
+<li>Visualization of charts GraphViz (https://www.graphviz.org/)</li>
+<li>IDE Visual Studio Code (https://code.visualstudio.com/), IntelliJ IDEA (https://www.jetbrains.com/idea/) or PyCharm (https: //www.jetbrains.com/pycharm /)</li>
+<li>Set up the software</li>
+<li>Install plugin PlantUML for IDE and GraphViz to draw charts</li>
+<li>customize the IDE for yourself if necessary</li>
+<li>Clone the repository</li>
+</ol></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
